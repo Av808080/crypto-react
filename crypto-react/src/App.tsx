@@ -6,9 +6,9 @@ import FetchData from '../services/FetchData'
 import { Data } from "./Types/Data";
 
 const App = () => {
-
   const [data, setData] = useState([] as Data[]);
   const [isLoading, setIsLoading] = useState(true)
+
   useEffect(() => {
     const fetchData = async () => {
       setData(await FetchData())
@@ -19,7 +19,7 @@ const App = () => {
   }, [])
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-slate-100">
       {isLoading ?
         <Loader /> :
         <Main data={data} />
