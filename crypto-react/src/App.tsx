@@ -1,7 +1,11 @@
 import { useState, useEffect } from "react"
 import FetchData from '../services/FetchData'
+
+import { Data } from "./Types/Data";
+import Main from "./Components/Main";
 const App = () => {
-  const [data, setData] = useState([] as any);
+
+  const [data, setData] = useState([] as Data[]);
   const [isLoading, setIsLoading] = useState(true)
   useEffect(() => {
     const fetchData = async () => {
@@ -14,7 +18,7 @@ const App = () => {
 
   return (
     <div className="min-h-screen">
-      
+      <Main data={data} />
     </div>
   )
 }
