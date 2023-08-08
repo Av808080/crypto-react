@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react"
-import FetchData from '../services/FetchData'
-
-import { Data } from "./Types/Data";
 import Main from "./Components/Main";
+import Loader from "./Components/Loader";
+
+import FetchData from '../services/FetchData'
+import { Data } from "./Types/Data";
+
 const App = () => {
 
   const [data, setData] = useState([] as Data[]);
@@ -14,11 +16,14 @@ const App = () => {
     }
     setIsLoading(true)
     fetchData()
-  }, [])  
+  }, [])
 
   return (
     <div className="min-h-screen">
-      <Main data={data} />
+      {isLoading ?
+        <Loader /> :
+        <Main data={data} />
+      }
     </div>
   )
 }
