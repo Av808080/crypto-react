@@ -12,10 +12,10 @@ const Card = ({data}:Props) => {
         <img src={image} className="w-12 my-auto mx-auto" />
         <p className="my-auto mx-auto ">{name}</p>
         {/* </div> */}
-        <p className="my-auto mx-auto px-6 text-center hidden sm:block">{symbol}</p>
-        <p className="my-auto mx-auto">${price}</p>
+        <p className="my-auto mx-auto px-6 text-center hidden sm:block">{symbol.toUpperCase()}</p>
+        <p className="my-auto mx-auto">${price.toLocaleString()}</p>
         <p className={`my-auto mx-auto font-bold hidden md:block ${price_change>0? 'text-rose-500' : 'text-green-600'}`}>{price_change.toFixed(2)}%</p>
-        <p className="my-auto mx-auto lg:block hidden">{market_cap}</p>
+        <p className="my-auto mx-auto lg:block hidden">{market_cap.toLocaleString()}</p>
     </div>
   )
 }
